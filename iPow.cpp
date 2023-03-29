@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
     // Set up Inverse Power Method
     // ---------------------------------------------
 
-    int    iter      = 1;
+    int    iter      = 0;
     int    maxIter   = 100;
     int    converged = 0;
     double tol       = 0.000001;
@@ -65,6 +65,8 @@ int main(int argc, char *argv[]) {
 
     while (converged != 1) {
 
+        iter++;
+
         // Max iteration check
       
         if (iter > maxIter) { cout << "Max iterations exceeded." << endl;  exit(0); }
@@ -84,6 +86,7 @@ int main(int argc, char *argv[]) {
 
         for (int i = 0; i < m; i++) {
             xhat[i] /= mu;
+            x[i] = xhat[i];
         }
 
         // Step 2c: Check for convergence and update mu)old
@@ -94,8 +97,6 @@ int main(int argc, char *argv[]) {
         mu_old = mu;
 
         cout << "iter = " << iter << " mu = " << mu << endl;
-
-        iter++;
     }
 
     // Compute final estimate for eigenvalue of original A, Aoriginal:
@@ -118,11 +119,11 @@ int main(int argc, char *argv[]) {
 
     double Ax[m];
 
-//    iLOOP jLOOP // .....
+    iLOOP Ax[i] = 0.;
 
-//    iLOOP jLOOP // Ax[i] += // ......
+    iLOOP jLOOP Ax[i] += x[j] * Aoriginal[i][j];
    
-//    iLOOP printf("%s: E-vector Check:     x[%d] = %5.2f     Ax[%d] = %5.2f     ratio = %s\n", caseName.c_str(), .....   );
+    iLOOP printf("%s: E-vector Check:     x[%d] = %5.2f     Ax[%d] = %5.2f     ratio = %5.2f\n", caseName.c_str(), i, x[i], i, Ax[i], x[i] / Ax[i]);
 
     
     
