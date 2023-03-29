@@ -150,16 +150,17 @@ int findPivot( int m , int n , double **A , double *b , int row , int col )
 //
 // =========================================================================
 
-void MatMat( double **A , int mA , double **B, int nB , int nAB ,  double **C )
-{
-  for ( int i = 0 ; i < mA ; ++i )
-    for ( int j = 0 ; j < nB ; ++j )
-      {
-	C[i][j ] = 0.;
+void MatMat( double **A , int mA , double **B, int nB , int nAB ,  double **C ) {
+    for (int i = 0 ; i < mA; ++i) {
 
-	for ( int k = 0 ; k < nAB; ++k ) C[ i ] [ j ] +=  A[i][k] * B [k][j];
+        for (int j = 0; j < nB; ++j) {
+	        C[i][j] = 0.;
 
-      }
+	        for (int k = 0; k < nAB; ++k) {
+                C[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
 }
 
 

@@ -26,8 +26,8 @@ if ( fabs(alpha) < 1.e-10) { cout << "Set initial guess, alpha using -alpha <val
 
 // p287
 
-int m1 = 4;
-int n1 = 4;
+const int m1 = 4;
+const int n1 = 4;
 double A1[m1][n1] = {  {  5 ,   0  ,  0 ,  0 } ,
 		       {  0 ,   5  ,  0 ,  0 } ,
 		       {  1 ,   4  , -3 ,  0 } ,
@@ -36,8 +36,8 @@ double b1[m1]    =     {  1.  ,  3. ,  4. ,  2.     };
 
 // p285
 
-int   m2 = 3;
-int   n2 = 3;
+const int   m2 = 3;
+const int   n2 = 3;
 double A2[m2][n2] = { {  1 , 3  ,  3  } ,
 		      { -3 ,-5  , -3  } ,
 		      {  3 , 3  ,  1  }   };
@@ -45,8 +45,8 @@ double b2[m2]    = { 1 , 4 , 4 };
 
 // p270
 
-int   m3 = 3;
-int   n3 = 3;
+const int   m3 = 3;
+const int   n3 = 3;
 double A3[m3][n3] = { {  4 , -1 , 6   },
 		      {  2 ,  1 , 6   },
 		      {  2 , -1 , 8   } };
