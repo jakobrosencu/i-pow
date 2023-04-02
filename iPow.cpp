@@ -33,8 +33,7 @@ int main(int argc, char *argv[]) {
 
     // Compute initial guess at x
 
-    for (int i = 0; i < n; i++) x[i] = 0.5;
-    xhat[0] = 1;
+    for (int i = 0; i < n; i++) x[i] = 1.;
 
     // Save new A = (A - alpha*I) in Asave:
 
@@ -80,7 +79,7 @@ int main(int argc, char *argv[]) {
 
         mu = 0.;
         for (int i = 0; i < m; i++) {
-            if (xhat[i] > mu) {
+            if (fabs(xhat[i]) > fabs(mu)) {
                 mu = xhat[i];
             }
         }
