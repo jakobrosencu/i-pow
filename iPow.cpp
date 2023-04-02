@@ -33,7 +33,8 @@ int main(int argc, char *argv[]) {
 
     // Compute initial guess at x
 
-    for (int i = 0; i < n; i++) x[i] = 1.;
+    for (int i = 0; i < n; i++) x[i] = 0.5;
+    xhat[0] = 1;
 
     // Save new A = (A - alpha*I) in Asave:
 
@@ -79,7 +80,7 @@ int main(int argc, char *argv[]) {
 
         mu = 0.;
         for (int i = 0; i < m; i++) {
-            if (fabs(xhat[i]) > fabs(mu)) {
+            if (xhat[i] > mu) {
                 mu = xhat[i];
             }
         }
@@ -121,12 +122,9 @@ int main(int argc, char *argv[]) {
 
     iLOOP Ax[i] = 0.;
 
-    iLOOP jLOOP Ax[i] += x[j] * Aoriginal[i][j];
+    iLOOP jLOOP Ax[i] += xhat[j] * Aoriginal[i][j];
    
-    iLOOP printf("%s: E-vector Check:     x[%d] = %5.2f     Ax[%d] = %5.2f     ratio = %5.2f\n", caseName.c_str(), i, x[i], i, Ax[i], x[i] / Ax[i]);
-
-    
-    
-  
+    iLOOP printf("%s: E-vector Check:     x[%d] = %5.2f     Ax[%d] = %5.2f     ratio = %5.2f\n",
+                 caseName.c_str(), i, xhat[i], i, Ax[i], Ax[i] / xhat[i]);
 }
 
